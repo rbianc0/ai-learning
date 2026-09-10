@@ -33,6 +33,7 @@ Before teaching the requested topic:
 7. Give the learner the GitHub Pages lesson URL after creating or updating the page so they can keep it open beside ChatGPT.
 8. Do not build extra infrastructure unless the learner explicitly asks for it. Preserve the minimal architecture: vanilla HTML/CSS/JS, no backend, no database, no framework, no build step.
 9. Follow the core sequence **probe → plan → teach**. Do not begin Phase 3 teaching until the learner has approved the plan.
+10. **Ask only one question at a time.** During the probe phase and all later quiz-checks, default to a single **4-option multiple-choice question (A–D)**, wait for the learner's answer, give concise feedback, and adapt the next question to that answer. Never dump a batch of diagnostic or quiz questions unless the learner explicitly asks for a batch.
 
 If the learner starts a new topic later, repeat the process from the probe phase rather than assuming their level from an unrelated topic.
 
@@ -62,9 +63,9 @@ docs/
 ## Learning workflow
 
 1. Ask ChatGPT to teach a topic using this repository.
-2. ChatGPT probes the current knowledge frontier and the learning goal.
+2. ChatGPT probes the current knowledge frontier and the learning goal, **one 4-option multiple-choice question at a time**.
 3. ChatGPT proposes a small dependency graph and waits for approval.
-4. Teaching proceeds one node at a time.
+4. Teaching proceeds one node at a time, with **one quiz-check at a time** before advancing.
 5. When a concept is genuinely clearer visually, ChatGPT creates or updates a standalone HTML lesson in `docs/lessons/`.
 6. The learner keeps that page open beside ChatGPT, interacts with it, and answers checks/quizzes in chat.
 
