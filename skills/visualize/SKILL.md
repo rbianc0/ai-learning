@@ -5,7 +5,7 @@ description: Add a correct, minimal visual or interactive visualization when it 
 
 # Visualize
 
-This skill follows the role of `skills/visualize/` in `amosblomqvist/learn`, but the output target is a standalone HTML lesson instead of an Obsidian image embed.
+This skill follows the role of `skills/visualize/` in `amosblomqvist/learn`, but the output target is a navigable HTML learning path instead of an Obsidian image embed.
 
 A visual earns its place only when it reveals structure, motion, geometry, dependence, sequence, comparison, or change more clearly than prose or one equation can.
 
@@ -51,15 +51,37 @@ Examples:
 
 The interaction should expose the concept, not turn the page into a game.
 
-## Standalone lesson pages
+## Learning-path structure
 
-Visual lessons live in:
+For a multi-node learning path, use this structure:
 
-`docs/lessons/<topic-slug>.html`
+```text
+docs/lessons/<topic-slug>/
+  index.html
+  01-<node-slug>.html
+  02-<node-slug>.html
+  03-<node-slug>.html
+  ...
+```
 
-Each lesson should be a single self-contained HTML file whenever practical. Put its CSS and JavaScript inside the file unless reuse is clearly justified.
+`index.html` is the permanent visual roadmap for that learning path. It should show all approved dependency nodes and their status: completed, current, next, or planned.
 
-A page should contain only what supports the current concept:
+Each node gets its own permanent, self-contained HTML page. Starting a new node must **not** replace or condense the previous node page. This keeps earlier explanations and interactions directly revisitable instead of relying on Git history.
+
+Every node page should provide:
+
+- a link back to the learning-path index;
+- a **Previous node** link when a previous lesson exists;
+- a **Next node** link when the next lesson has been created;
+- a clear disabled/pending next state when the next lesson does not exist yet.
+
+When a new node page is created, also update the previous node's Next link and update the learning-path index status/progress. Add the learning-path index, not an individual node page, to `docs/index.html`.
+
+For a one-node topic, a single `docs/lessons/<topic-slug>.html` is still acceptable. Prefer the directory structure as soon as the approved learning plan contains multiple nodes.
+
+Each node page should remain self-contained whenever practical. Put its CSS and JavaScript inside the file unless reuse is clearly justified.
+
+A page should contain only what supports that concept:
 
 - a short title;
 - the minimum explanatory text needed to orient the learner;
