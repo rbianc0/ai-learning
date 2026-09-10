@@ -39,14 +39,11 @@ The learner has a usable intuitive understanding of:
 
 The learner does **not** yet have a secure understanding of:
 
-- linear dependence as a formal concept;
 - matrix rank and its relation to linear dependence;
 - rank-1 matrices as outer products in a conceptual sense;
 - rank-1 tensors / separability across three axes;
 - standard tensor component analysis / CP decomposition;
 - slice-rank-1 tensors and sliceTCA.
-
-The key diagnostic boundary was that the learner could recognize scalar multiples and compute a 2-vector outer product, but did not know why a matrix such as `[[1,2],[2,4],[3,6]]` has rank 1 and had no intuition for what `a ⊗ b ⊗ c` means conceptually.
 
 ## Approved dependency graph
 
@@ -109,13 +106,16 @@ The central conceptual click should happen around nodes 3–9:
 
 Use interactive visualization for this transition if possible, because the learner is strongly visual.
 
+## Progress
+
+- **Node 1 — Linear dependence: COMPLETE (2026-09-10).** Learner understood scalar-multiple/collinearity intuition immediately and passed the required check with `v1=[1,2]`, `v2=[-3,-6]`, correctly identifying `v2=-3v1` and linear dependence.
+- **Node 2 — Matrix rank: IN PROGRESS.**
+
 ## Current status
 
-**Plan approved on 2026-09-10.**
+Plan approved on 2026-09-10. Probe phase is complete. Do **not** restart the probe when resuming this same session unless later answers expose a foundational problem.
 
-Probe phase is complete. Do **not** restart the probe when resuming this same session unless later answers expose a foundational problem.
-
-**Next step: Phase 3, Node 1 — Linear dependence.**
+**Next step: Phase 3, Node 2 — Matrix rank.**
 
 ## Resume prompt
 
