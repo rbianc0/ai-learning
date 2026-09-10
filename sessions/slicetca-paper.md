@@ -39,7 +39,6 @@ The learner has a usable intuitive understanding of:
 
 The learner does **not** yet have a secure understanding of:
 
-- matrix rank and its relation to linear dependence;
 - rank-1 matrices as outer products in a conceptual sense;
 - rank-1 tensors / separability across three axes;
 - standard tensor component analysis / CP decomposition;
@@ -108,14 +107,15 @@ Use interactive visualization for this transition if possible, because the learn
 
 ## Progress
 
-- **Node 1 — Linear dependence: COMPLETE (2026-09-10).** Learner understood scalar-multiple/collinearity intuition immediately and passed the required check with `v1=[1,2]`, `v2=[-3,-6]`, correctly identifying `v2=-3v1` and linear dependence.
-- **Node 2 — Matrix rank: IN PROGRESS.**
+- **Node 1 — Linear dependence: COMPLETE (2026-09-10).** Learner understood scalar-multiple/collinearity intuition and passed the required check.
+- **Node 2 — Matrix rank: COMPLETE (2026-09-10).** Initial check exposed a tendency to count columns rather than independent directions. After repair, learner correctly identified rank 3 when one of four columns was redundant and a fourth introduced a third independent direction.
+- **Node 3 — Rank-1 matrix = outer product of 2 vectors: IN PROGRESS.**
 
 ## Current status
 
 Plan approved on 2026-09-10. Probe phase is complete. Do **not** restart the probe when resuming this same session unless later answers expose a foundational problem.
 
-**Next step: Phase 3, Node 2 — Matrix rank.**
+**Next step: Phase 3, Node 3 — Rank-1 matrix = outer product of 2 vectors.**
 
 ## Resume prompt
 
