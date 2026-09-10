@@ -43,10 +43,18 @@
       padding-top: 24px;
     }
     h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .09em; opacity: .55; }
-    .empty {
-      padding: 18px 0;
-      opacity: .68;
+    .lesson {
+      display: block;
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+      border-radius: 16px;
+      color: inherit;
+      text-decoration: none;
     }
+    .lesson:hover { border-color: color-mix(in srgb, CanvasText 42%, transparent); }
+    .lesson strong { display: block; font-size: 1.08rem; margin-bottom: 4px; }
+    .lesson span { opacity: .67; }
     code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: .92em;
@@ -72,7 +80,10 @@
 
     <section>
       <h2>Lessons</h2>
-      <div class="empty">No lessons yet. Start a topic in ChatGPT and the first useful visualization will appear here.</div>
+      <a class="lesson" href="lessons/slicetca-paper.html">
+        <strong>Understanding the sliceTCA paper</strong>
+        <span>Node 1 · Linear dependence</span>
+      </a>
     </section>
   </main>
 </body>
