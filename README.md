@@ -34,15 +34,17 @@ Before teaching the requested topic:
 8. Do not build extra infrastructure unless the learner explicitly asks for it. Preserve the minimal architecture: vanilla HTML/CSS/JS, no backend, no database, no framework, no build step.
 9. Follow the core sequence **probe → plan → teach**. Do not begin Phase 3 teaching until the learner has approved the plan.
 10. **Ask only one question at a time.** During the probe phase and all later quiz-checks, default to a single **4-option multiple-choice question (A–D)**, wait for the learner's answer, give concise feedback, and adapt the next question to that answer. Never dump a batch of diagnostic or quiz questions unless the learner explicitly asks for a batch.
+11. After the learner approves the dependency plan, save a checkpoint under `sessions/<topic-slug>.md`. Record the learning goal, established foundations, identified gaps, approved dependency graph, teaching preferences that matter to the session, completed nodes, and the exact next step.
+12. Update that checkpoint at meaningful milestones so a future conversation can resume without repeating the probe or losing progress.
 
-If the learner starts a new topic later, repeat the process from the probe phase rather than assuming their level from an unrelated topic.
+If the learner starts a genuinely new topic later, repeat the process from the probe phase rather than assuming their level from an unrelated topic. If the learner resumes an existing topic, read its checkpoint first and continue from the saved next step unless the learner asks to reassess.
 
 ## Design
 
 The system intentionally has three parts:
 
 1. **ChatGPT teaches** — probe → plan → teach, using `skills/teach/SKILL.md`.
-2. **GitHub persists** — teaching protocol and lesson pages live in this repository.
+2. **GitHub persists** — teaching protocol, session checkpoints, and lesson pages live in this repository.
 3. **GitHub Pages visualizes** — each lesson is a standalone HTML page with only the CSS/JavaScript it needs.
 
 There is no backend, database, framework, build step, or quiz synchronization. Keep ChatGPT and the lesson page side by side; answer all teaching questions in chat.
@@ -55,6 +57,8 @@ skills/
   visualize/SKILL.md   visual/interactive lesson policy
 agents/
   researcher.md        research/verification policy
+sessions/
+  <topic-slug>.md      resumable learning checkpoints
 docs/
   index.html            GitHub Pages home
   lessons/              standalone interactive lessons
@@ -62,12 +66,28 @@ docs/
 
 ## Learning workflow
 
+The general workflow is:
+
+**probe → approve plan → save checkpoint → teach → periodically update checkpoint**
+
+In practice:
+
 1. Ask ChatGPT to teach a topic using this repository.
 2. ChatGPT probes the current knowledge frontier and the learning goal, **one 4-option multiple-choice question at a time**.
 3. ChatGPT proposes a small dependency graph and waits for approval.
-4. Teaching proceeds one node at a time, with **one quiz-check at a time** before advancing.
-5. When a concept is genuinely clearer visually, ChatGPT creates or updates a standalone HTML lesson in `docs/lessons/`.
-6. The learner keeps that page open beside ChatGPT, interacts with it, and answers checks/quizzes in chat.
+4. Once approved, ChatGPT saves the plan and current frontier in `sessions/<topic-slug>.md` before teaching begins.
+5. Teaching proceeds one dependency node at a time, with **one quiz-check at a time** before advancing.
+6. At meaningful milestones, ChatGPT updates the session checkpoint with what is now understood, what remains, and the exact next node.
+7. When a concept is genuinely clearer visually, ChatGPT creates or updates a standalone HTML lesson in `docs/lessons/`.
+8. The learner keeps that page open beside ChatGPT, interacts with it, and answers checks/quizzes in chat.
+
+The checkpoint is the source of continuity across conversations. It should be concise enough to read quickly but complete enough that a new chat can resume without reconstructing the entire history.
+
+To resume a saved session in a fresh conversation, use:
+
+```text
+@GitHub Read rbianc0/ai-learning/README.md and rbianc0/ai-learning/sessions/<topic-slug>.md, then continue from the saved checkpoint.
+```
 
 The visual page is supporting material, not a second teacher. Chat remains the source of interaction and adaptation.
 
