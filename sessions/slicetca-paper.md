@@ -39,7 +39,7 @@ The learner has a usable intuitive understanding of:
 
 The learner does **not** yet have a secure understanding of:
 
-- rank-1 matrices as outer products in a conceptual sense;
+- PCA as a low-rank matrix approximation;
 - rank-1 tensors / separability across three axes;
 - standard tensor component analysis / CP decomposition;
 - slice-rank-1 tensors and sliceTCA.
@@ -109,13 +109,14 @@ Use interactive visualization for this transition if possible, because the learn
 
 - **Node 1 — Linear dependence: COMPLETE (2026-09-10).** Learner understood scalar-multiple/collinearity intuition and passed the required check.
 - **Node 2 — Matrix rank: COMPLETE (2026-09-10).** Initial check exposed a tendency to count columns rather than independent directions. After repair, learner correctly identified rank 3 when one of four columns was redundant and a fourth introduced a third independent direction.
-- **Node 3 — Rank-1 matrix = outer product of 2 vectors: IN PROGRESS.**
+- **Node 3 — Rank-1 matrix = outer product of 2 vectors: COMPLETE (2026-09-10).** Learner correctly identified that `[[2,-1],[4,-2],[6,-3]]` has rank 1 because its second column is `-1/2` times the first, confirming the outer-product/rank-1 connection.
+- **Node 4 — PCA as low-rank matrix approximation: IN PROGRESS.**
 
 ## Current status
 
 Plan approved on 2026-09-10. Probe phase is complete. Do **not** restart the probe when resuming this same session unless later answers expose a foundational problem.
 
-**Next step: Phase 3, Node 3 — Rank-1 matrix = outer product of 2 vectors.**
+**Next step: Phase 3, Node 4 — PCA as low-rank matrix approximation.**
 
 ## Resume prompt
 
